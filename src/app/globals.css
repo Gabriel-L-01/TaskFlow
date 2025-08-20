@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 236 67% 97%;
+    --foreground: 222 84% 4.9%;
+    --card: 236 67% 97%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 236 67% 97%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 243 80% 63%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 84% 4.9%;
+    --muted: 220 15% 90%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 256 90% 66%;
+    --accent-foreground: 222 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 243 80% 63%;
+
+    --chart-1: 220 89% 60%; /* sky */
+    --chart-2: 25 95% 53%; /* tangerine */
+    --chart-3: 145 63% 49%; /* emerald */
+    --chart-4: 262 92% 65%; /* violet */
+    --chart-5: 0 84% 60%; /* crimson */
+  }
+
+  .theme-crimson {
+    --primary: 0 84% 60%;
+    --accent: 25 95% 53%;
+    --ring: 0 84% 60%;
+  }
+
+  .theme-tangerine {
+    --primary: 25 95% 53%;
+    --accent: 145 63% 49%;
+    --ring: 25 95% 53%;
+  }
+
+  .theme-emerald {
+    --primary: 145 63% 49%;
+    --accent: 220 89% 60%;
+    --ring: 145 63% 49%;
+  }
+  
+  .theme-sky {
+    --primary: 220 89% 60%;
+    --accent: 262 92% 65%;
+    --ring: 220 89% 60%;
+  }
+  
+  .theme-violet {
+    --primary: 262 92% 65%;
+    --accent: 329 82% 61%;
+    --ring: 262 92% 65%;
+  }
+
+  .theme-rose {
+    --primary: 329 82% 61%;
+    --accent: 0 84% 60%;
+    --ring: 329 82% 61%;
+  }
+
+
+  .dark {
+    --radius: 0.5rem;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 243 80% 63%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 256 90% 66%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 243 80% 63%;
+
+    --chart-1: 220 75% 55%; /* sky */
+    --chart-2: 25 80% 48%; /* tangerine */
+    --chart-3: 145 58% 42%; /* emerald */
+    --chart-4: 262 80% 60%; /* violet */
+    --chart-5: 0 72% 51%; /* crimson */
+  }
+
+  .dark.theme-crimson {
+    --primary: 0 72% 51%;
+    --accent: 25 80% 48%;
+    --ring: 0 72% 51%;
+  }
+
+  .dark.theme-tangerine {
+    --primary: 25 80% 48%;
+    --accent: 145 58% 42%;
+    --ring: 25 80% 48%;
+  }
+
+  .dark.theme-emerald {
+    --primary: 145 58% 42%;
+    --accent: 220 75% 55%;
+    --ring: 145 58% 42%;
+  }
+
+  .dark.theme-sky {
+    --primary: 220 75% 55%;
+    --accent: 262 80% 60%;
+    --ring: 220 75% 55%;
+  }
+
+  .dark.theme-violet {
+    --primary: 262 80% 60%;
+    --accent: 329 70% 55%;
+    --ring: 262 80% 60%;
+  }
+
+  .dark.theme-rose {
+    --primary: 329 70% 55%;
+    --accent: 0 72% 51%;
+    --ring: 329 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .dark body {
+    background-color: #0d0d0d;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 2rem 2rem;
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-background/50 backdrop-blur-xl border border-white/10 shadow-lg rounded-lg;
+  }
+  .dark .glass-panel {
+    @apply bg-black/10 border-white/20;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  .markdown {
+    @apply prose prose-sm dark:prose-invert max-w-none prose-p:mb-2 prose-p:mt-0 prose-headings:my-3 prose-blockquote:my-2 prose-ul:my-1 prose-li:my-0 prose-code:px-1 prose-code:rounded;
+  }
+  .markdown p:last-of-type {
+    @apply mb-0;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+.toast-destructive {
+    --background: 0 84.2% 60.2%;
+    --foreground: 210 40% 98%;
+    @apply bg-destructive text-destructive-foreground;
+}
+
+.dark .toast-destructive {
+    --background: 0 72.2% 50.6%;
+    --foreground: 210 40% 98%;
+}
